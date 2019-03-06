@@ -5,6 +5,7 @@ s="""<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>CSS Screen Meter</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
   <style>
     body { 
       background-color: skyblue;
@@ -23,13 +24,15 @@ s="""<!DOCTYPE html>
     span {display:none};"""
 for i in range(mw):
   s+="""
-    @media screen and (min-width: """+str(i+1)+"""px) and (max-width: """+str(i+1)+"""px) {
+    @media (min-width: """+str(i+1)+"""px) and (max-width: """+str(i+2)+"""px) {
       span#w"""+str(i+1)+""" {display:inline-block;}
+      span#w"""+str(i)+""" {display:none;}
     }"""
 for i in range(mh):
   s+="""
-    @media screen and (min-height: """+str(i+1)+"""px) and (max-height: """+str(i+1)+"""px) {
+    @media (min-height: """+str(i+1)+"""px) and (max-height: """+str(i+2)+"""px) {
       span#h"""+str(i+1)+""" {display:inline-block;}
+      span#h"""+str(i)+""" {display:none;}
     }"""
 s+="""
   </style>
